@@ -7,7 +7,9 @@ import Button from '../Button';
 class Timer extends Component {
   render() {
     console.log(this.props);
-    const { isPlaying, elapsedTime, timerDuration } = this.props;
+    const {
+      isPlaying, elapsedTime, timerDuration, startTimer, restartTimer,
+    } = this.props;
 
     return (
       <View style={styles.container}>
@@ -18,7 +20,7 @@ class Timer extends Component {
         <View style={styles.lower}>
           <Button
             iconName={isPlaying ? 'stop-circle' : 'play-circle'}
-            onPress={() => alert('it works!')}
+            onPress={isPlaying ? restartTimer : startTimer}
           />
         </View>
       </View>

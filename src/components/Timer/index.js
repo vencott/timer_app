@@ -5,7 +5,6 @@ import { actionCreators } from '../../reducer';
 
 function mapStateToProps(state) {
   const { isPlaying, elapsedTime, timerDuration } = state;
-
   return {
     isPlaying,
     elapsedTime,
@@ -17,7 +16,6 @@ function mapDispatchToProps(dispatch) {
   return {
     startTimer: bindActionCreators(actionCreators.startTimer, dispatch),
     restartTimer: bindActionCreators(actionCreators.restartTimer, dispatch),
-    addSecond: bindActionCreators(actionCreators.addSecond, dispatch),
   };
 }
 
