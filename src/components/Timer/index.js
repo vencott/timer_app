@@ -16,6 +16,7 @@ function mapDispatchToProps(dispatch) {
   return {
     startTimer: bindActionCreators(actionCreators.startTimer, dispatch),
     restartTimer: bindActionCreators(actionCreators.restartTimer, dispatch),
+    addSecond: bindActionCreators(actionCreators.addSecond, dispatch),
   };
 }
 

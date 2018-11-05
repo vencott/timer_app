@@ -8,7 +8,12 @@ class Timer extends Component {
   render() {
     console.log(this.props);
     const {
-      isPlaying, elapsedTime, timerDuration, startTimer, restartTimer,
+      isPlaying,
+      elapsedTime,
+      timerDuration,
+      startTimer,
+      restartTimer,
+      addSecond,
     } = this.props;
 
     return (
