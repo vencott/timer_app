@@ -2,7 +2,30 @@ import React, { Component } from 'react';
 import {
   View, Text, StyleSheet, StatusBar,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import Button from '../Button';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#CE0B24',
+  },
+  upper: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  lower: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  time: {
+    color: 'white',
+    fontSize: 120,
+    fontWeight: '100',
+  },
+});
 
 class Timer extends Component {
   componentWillReceiveProps(nextProps) {
@@ -31,7 +54,6 @@ class Timer extends Component {
   };
 
   render() {
-    console.log(this.props);
     const {
       isPlaying, elapsedTime, timerDuration, startTimer, stoptTimer,
     } = this.props;
@@ -53,26 +75,12 @@ class Timer extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#CE0B24',
-  },
-  upper: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  lower: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  time: {
-    color: 'white',
-    fontSize: 120,
-    fontWeight: '100',
-  },
-});
+Timer.propTypes = {
+  isPlaying: PropTypes.bool.isRequired,
+  elapsedTime: PropTypes.number.isRequired,
+  timerDuration: PropTypes.number.isRequired,
+  startTimer: PropTypes.func.isRequired,
+  stoptTimer: PropTypes.func.isRequired,
+};
 
 export default Timer;

@@ -24,28 +24,6 @@ function addSecond() {
   };
 }
 
-// Reducer
-const TIMER_DURATION = 5;
-
-const initialState = {
-  isPlaying: false,
-  elapsedTime: 0,
-  timerDuration: TIMER_DURATION,
-};
-
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case START_TIMER:
-      return applyStartTimer(state);
-    case STOP_TIMER:
-      return applyStopTimer(state);
-    case ADD_SECOND:
-      return applyAddSecond(state);
-    default:
-      return state;
-  }
-}
-
 // Reducer Funtions
 function applyStartTimer(state) {
   return {
@@ -73,6 +51,28 @@ function applyAddSecond(state) {
       isPlaying: false,
       elapsedTime: 0,
     };
+}
+
+// Reducer
+const TIMER_DURATION = 5;
+
+const initialState = {
+  isPlaying: false,
+  elapsedTime: 0,
+  timerDuration: TIMER_DURATION,
+};
+
+function reducer(state = initialState, action) {
+  switch (action.type) {
+    case START_TIMER:
+      return applyStartTimer(state);
+    case STOP_TIMER:
+      return applyStopTimer(state);
+    case ADD_SECOND:
+      return applyAddSecond(state);
+    default:
+      return state;
+  }
 }
 
 // Export Action Creators
