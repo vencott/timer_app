@@ -23,27 +23,29 @@ class Timer extends Component {
     }
   }
 
+  _formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+
+    return `${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+  };
+
   render() {
     console.log(this.props);
     const {
-      isPlaying,
-      elapsedTime,
-      timerDuration,
-      startTimer,
-      restartTimer,
-      addSecond,
+      isPlaying, elapsedTime, timerDuration, startTimer, stoptTimer,
     } = this.props;
 
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <View style={styles.upper}>
-          <Text style={styles.time}>25:00</Text>
+          <Text style={styles.time}>{this._formatTime(timerDuration - elapsedTime)}</Text>
         </View>
         <View style={styles.lower}>
           <Button
             iconName={isPlaying ? 'stop-circle' : 'play-circle'}
-            onPress={isPlaying ? restartTimer : startTimer}
+            onPress={isPlaying ? stoptTimer : startTimer}
           />
         </View>
       </View>
